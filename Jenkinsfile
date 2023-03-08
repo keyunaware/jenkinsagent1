@@ -34,8 +34,8 @@ spec:
     command:
     - cat
     tty: true
-  - name: terraform
-    image: terraform:latest
+  - name: mysql
+    image: mysql:latest
     command:
     - cat
     tty: true
@@ -57,7 +57,7 @@ spec:
         }
       }
     }
-    stage('Terraform') {
+    stage('mysql') {
       steps {
         container('terraform') {
           sh "terraform show"
