@@ -50,6 +50,7 @@ spec:
           }
         }
       }
+    }
     stage('') {
       steps {
         container('python') {
