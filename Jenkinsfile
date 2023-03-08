@@ -53,13 +53,13 @@ spec:
     stage('Deployment') {
       steps {
         container('python') {
-          sh "date; echo ${PROJECT}"
+          sh "date; echo "
         }
       }
     }
     stage('mysql') {
       steps {
-        container('terraform') {
+        container('mysql') {
           sh "terraform show"
         }
       }
