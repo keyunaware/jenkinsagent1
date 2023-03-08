@@ -35,7 +35,7 @@ spec:
     - cat
     tty: true
   - name: terraform
-    image: terraform:1.4.0
+    image: terraform:latest
     command:
     - cat
     tty: true
