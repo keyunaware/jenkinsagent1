@@ -25,17 +25,17 @@ spec:
   serviceAccountName: cd-jenkins
   containers:
   - name: nodejs
-    image: node:latest
+    image: node:14
     command:
     - cat
     tty: true
   - name: python
-    image: python:latest
+    image: python:3
     command:
     - cat
     tty: true
   - name: terraform
-    image: terraform:latest
+    image: terraform:1.4.0
     command:
     - cat
     tty: true
