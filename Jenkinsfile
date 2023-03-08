@@ -18,51 +18,51 @@ pipeline {
 apiVersion: v1
 kind: Pod
 metadata:
-labels:
-  component: ci
+  labels:
+    component: ci
 spec:
   # Use service account that can deploy to all namespaces
   serviceAccountName: cd-jenkins
   containers:
-    - name: nodejs
+  - name: nodejs
     image: node:latest
     command:
     - cat
     tty: true
-    - name: python
+  - name: python
     image: python:latest
     command:
     - cat
     tty: true
-    - name: terraform
-    image: mysql:latest
+  - name: terraform
+    image: terraform:latest
     command:
     - cat
     tty: true
-    “”"
+"""
 }
   }
   stages {
     stage('Compilation') {
-       steps {
+      steps {
         container('nodejs') {
           sh "node -v"
-          }
         }
       }
     }
-    stage('') {
+    stage('Deployment') {
       steps {
         container('python') {
-             sh "ctime()${PROJECT}"
-         }
+          sh "date; echo ${PROJECT}"
         }
       }
-    stage('') {
+    }
+    stage('Terraform') {
       steps {
         container('terraform') {
-           sh "terraform show"
+          sh "terraform show"
         }
+      }
     }
   }
 }
