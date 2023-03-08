@@ -34,7 +34,7 @@ spec:
     command:
     - cat
     tty: true
-    - name: mysql
+    - name: terraform
     image: mysql:latest
     command:
     - cat
