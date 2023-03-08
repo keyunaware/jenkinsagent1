@@ -60,7 +60,7 @@ spec:
     stage('mysql') {
       steps {
         container('mysql') {
-          sh "terraform show"
+          sh "SELECT * FROM Customers;"
         }
       }
     }
