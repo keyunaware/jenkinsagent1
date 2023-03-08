@@ -44,7 +44,7 @@ pipeline {
     stage('Compilation') {
       steps {
         container('nodejs') {
-          sh "node -v"
+          sh "node -e"
         }
       }
     }
@@ -58,7 +58,7 @@ pipeline {
     stage('mysql') {
       steps {
         container('mysql') {
-          sh "SHOW SCHEMAS;"
+          sh "mysql --version"
         }
       }
     }
