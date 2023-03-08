@@ -44,7 +44,7 @@ pipeline {
     stage('Compilation') {
       steps {
         container('nodejs') {
-          sh "node -e"
+          sh "node path/to/script.js"
         }
       }
     }
