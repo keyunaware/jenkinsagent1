@@ -63,6 +63,6 @@ spec:
         container('terraform') {
            sh "terraform show"
         }
-      }
     }
   }
+}
