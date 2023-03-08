@@ -37,6 +37,11 @@ pipeline {
           command:
           - cat
           tty: true
+        - name: docker
+          image: docker:latest
+          command:
+          - cat
+          tty: true
       """
     }
   }
@@ -44,7 +49,7 @@ pipeline {
     stage('Compilation') {
       steps {
         container('nodejs') {
-          sh "node path/to/script.js"
+          sh "npm run "I'm Keyuna""
         }
       }
     }
