@@ -64,13 +64,13 @@ spec:
         }
       }
     }
-    stage('') {
-      steps {
-        container('docker') {
-          sh """"
-          docker build -t ${IMAGE_TAG}
-        }
+  stage('') {
+    steps {
+      container('docker') {
+       sh """
+       docker build -t ${IMAGE_TAG}
+       """
       }
     }
-  }
+  } 
 }
