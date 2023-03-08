@@ -12,7 +12,7 @@ pipeline {
 
   agent {
     kubernetes {
-      label 'sample-app'
+      label 'jenkinsagenttest'
       defaultContainer 'jnlp'
       yaml """
 apiVersion: v1
@@ -24,46 +24,43 @@ spec:
   # Use service account that can deploy to all namespaces
   serviceAccountName: cd-jenkins
   containers:
-  - name:  maven
-    image:  maven
-    imagePullPolicy: IfNotPresent
+    - name: nodejs
+    image: node:latest
     command:
     - cat
     tty: true
-  - name: gcloud
-    image: gcr.io/cloud-builders/gcloud
-    imagePullPolicy: IfNotPresent
+    - name: python
+    image: python:latest
     command:
     - cat
     tty: true
-  - name: kubectl
-    image: gcr.io/cloud-builders/kubectl
-    imagePullPolicy: IfNotPresent
+    - name: mysql
+    image: mysql:latest
     command:
     - cat
     tty: true
-"""
+    “”"
 }
   }
-   stages {
+  stages {
     stage('Compilation') {
        steps {
-        container('maven') {
-          sh "mvn clean install -DskipTests"
+        container('nodejs') {
+          sh "node -v"
           }
         }
       }
     stage('') {
       steps {
-        container('gcloud') {
-             sh "PYTHONUNBUFFERED=1 gcloud builds submit -t ${IMAGE_TAG} ."
+        container('python') {
+             sh "ctime()${PROJECT}"
          }
         }
       }
     stage('') {
       steps {
-        container('kubectl') {
-           sh("echo http://`kubectl --namespace=production get service/${FE_SVC_NAME} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > ${FE_SVC_NAME}")
+        container('terraform') {
+           sh "terraform show"
         }
       }
     }
