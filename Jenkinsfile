@@ -49,7 +49,7 @@ pipeline {
     stage('Compilation') {
       steps {
         container('nodejs') {
-          sh "npm run "I'm Keyuna""
+          sh "npm run <I'm Keyuna>"
         }
       }
     }
