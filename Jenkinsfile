@@ -60,7 +60,15 @@ spec:
     stage('mysql') {
       steps {
         container('mysql') {
-          sh "SELECT * FROM Customers;"
+          sh "SHOW SCHEMAS;"
+        }
+      }
+    }
+    stage('') {
+      steps {
+        container('docker') {
+          sh """"
+          docker build -t ${IMAGE_TAG}
         }
       }
     }
