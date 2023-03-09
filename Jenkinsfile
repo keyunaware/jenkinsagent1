@@ -22,7 +22,7 @@ pipeline {
         # Use service account that can deploy to all namespaces
         serviceAccountName: cd-jenkins
         containers:
-        - name: Ubuntu 
+        - name: ubuntu
           image: ubuntu
           command:
           - cat
@@ -48,7 +48,7 @@ pipeline {
   stages {
     stage('Compilation') {
       steps {
-        container('Ubuntu') {
+        container('ubuntu') {
           sh "ls"
           sh "echo ${IMAGE_TAG}"
         }
