@@ -23,7 +23,7 @@ pipeline {
         serviceAccountName: cd-jenkins
         containers:
         - name: terraform
-          image: terraform
+          image: hashicorp/terraform
           command:
           - cat
           tty: true
