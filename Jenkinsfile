@@ -71,7 +71,7 @@ pipeline {
       steps {
         container('docker') {
           sh """
-          Docker run 
+          sudo systemctl start docker 
           docker build ${IMAGE_TAG}
           """
         }
