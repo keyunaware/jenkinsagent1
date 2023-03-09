@@ -22,8 +22,8 @@ pipeline {
         # Use service account that can deploy to all namespaces
         serviceAccountName: cd-jenkins
         containers:
-        - name: terraform
-          image: hashicorp/terraform
+        - name: Ubuntu 
+          image: ubuntu
           command:
           - cat
           tty: true
@@ -48,8 +48,8 @@ pipeline {
   stages {
     stage('Compilation') {
       steps {
-        container('terraform') {
-          sh "terraform version"
+        container('Ubuntu') {
+          sh "ls"
           sh "echo ${IMAGE_TAG}"
         }
       }
