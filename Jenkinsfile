@@ -22,8 +22,8 @@ pipeline {
         # Use service account that can deploy to all namespaces
         serviceAccountName: cd-jenkins
         containers:
-        - name: nodejs
-          image: node:14
+        - name: terraform
+          image: terraform
           command:
           - cat
           tty: true
@@ -48,8 +48,8 @@ pipeline {
   stages {
     stage('Compilation') {
       steps {
-        container('nodejs') {
-          sh "pwd"
+        container('terraform') {
+          sh "terrraform state list"
           sh "echo ${IMAGE_TAG}"
         }
       }
