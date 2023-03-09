@@ -71,7 +71,7 @@ pipeline {
       steps {
         container('docker') {
           sh """
-          docker build -t ${IMAGE_TAG}
+          docker build ${IMAGE_TAG}
           """
         }
       }
