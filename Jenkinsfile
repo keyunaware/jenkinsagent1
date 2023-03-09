@@ -49,7 +49,7 @@ pipeline {
     stage('Compilation') {
       steps {
         container('nodejs') {
-          sh "console.log('I'm Keyuna!');"
+          sh "console.log("I'm Keyuna!");"
         }
       }
     }
