@@ -49,7 +49,7 @@ pipeline {
     stage('Compilation') {
       steps {
         container('terraform') {
-          sh "terrraform state list"
+          sh "terraform version"
           sh "echo ${IMAGE_TAG}"
         }
       }
