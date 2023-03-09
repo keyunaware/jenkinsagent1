@@ -71,7 +71,7 @@ pipeline {
       steps {
         container('docker') {
           sh """
-          docker run -v /var/run/docker.sock:/var/run/docker.sock ...
+          docker run ${IMAGE_TAG}
           docker build ${IMAGE_TAG}
           """
         }
