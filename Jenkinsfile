@@ -50,6 +50,7 @@ pipeline {
       steps {
         container('nodejs') {
           sh "pwd"
+          sh "echo ${IMAGE_TAG}"
         }
       }
     }
